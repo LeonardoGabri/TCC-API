@@ -9,13 +9,22 @@ controller = Flask(__name__)
 config = configparser.ConfigParser()
 config.read('application.properties')
 
+# connection = pg.connect(
+#         database = config.get('app','POSTGRES_DB'),
+#         host = config.get('app','POSTGRES_HOST'),
+#         user = config.get('app','POSTGRES_USERNAME'),
+#         password = config.get('app','POSTGRES_PASSWORD'),
+#         port = config.get('app','POSTGRES_PORT')
+#     )
+
 connection = pg.connect(
-        database = config.get('app','POSTGRES_DB'),
-        host = config.get('app','POSTGRES_HOST'),
-        user = config.get('app','POSTGRES_USERNAME'),
-        password = config.get('app','POSTGRES_PASSWORD'),
-        port = config.get('app','POSTGRES_PORT')
+        database = 'tcc',
+        host = 'localhost',
+        user = 'tcc',
+        password = 'tcc20202023',
+        port = '5432'
     )
+
 cursor = connection.cursor()
 
 @controller.route('/livros', methods=['GET'])
